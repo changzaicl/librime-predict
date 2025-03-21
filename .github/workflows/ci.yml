@@ -43,7 +43,7 @@ jobs:
         working-directory: build/bin
         run: |
           wget https://github.com/changzaicl/librime-predict/tree/master/data/predict.txt
-          wget -O release.db https://github.com/changzaicl/librime-predict/releases/download/data/predict.db
+          wget -O release.db https://github.com/changzaicl/librime-predict/tree/master/data/predict.db
           cat predict.txt | ../plugins/predict/bin/build_predict
           diff predict.db release.db
 
