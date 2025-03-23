@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - 20250323
   pull_request:
 
 jobs:
