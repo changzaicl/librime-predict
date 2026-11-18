@@ -49,22 +49,17 @@ jobs:
       - name: Build predict.db
         working-directory: build/bin
         run: |
-          # 检查训练数据
-          test -f ../../plugins/predict/data/predict.txt || {
-            echo "Error: predict.txt not found!"
-            exit 1
-          }
+          echo "Checking predict.txt..."
+          test -f ../../plugins/predict/data/predict.txt
 
-          # 检查生成工具
-          test -x plugins/predict/bin/build_predict || {
-            echo "Error: build_predict not found!"
-            exit 1
-          }
+          echo "Checking build_predict..."
+          ls -lh ../plugins/predict/bin/
+          test -x ../plugins/predict/bin/build_predict
 
-          # 使用自己的 predict.txt 生成数据库
-          cat ../../plugins/predict/data/predict.txt | plugins/predict/bin/build_predict
+          echo "Generating predict.db..."
+          cat ../../plugins/predict/data/predict.txt | ../plugins/predict/bin/build_predict
 
-          # 检查生成结果
+          echo "Checking predict.db..."
           ls -lh predict.db
 
       - name: Upload predict.db
