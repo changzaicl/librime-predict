@@ -54,6 +54,15 @@ jobs:
           cat predict.txt | ../plugins/predict/bin/build_predict
           diff predict.db release.db
 
+      - name: Upload predict.db
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: predict-db
+          path: build/bin/predict.db
+          if-no-files-found: warn
+          retention-days: 30
+    
       - name: Test
         working-directory: build/bin
         run: |
