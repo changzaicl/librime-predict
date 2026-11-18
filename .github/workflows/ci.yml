@@ -16,6 +16,10 @@ jobs:
         run: sudo apt install -y clang-format
       - name: Lint
         run: find src tools -name '*.cc' -o -name '*.h' | xargs clang-format -Werror --dry-run || { echo Please lint your code by '"'"find src tools -name '*.cc' -o -name '*.h' | xargs clang-format -i"'"'.; false; }
+      - name: Install Boost dependencies
+        run: |
+         sudo apt-get update
+         sudo apt-get install -y libboost-all-dev
 
   build:
     runs-on: ubuntu-24.04
