@@ -76,4 +76,4 @@ jobs:
         run: |
           cp ../../plugins/predict/data/luna_pinyin.custom.yaml .
           echo -e 'nihao \n ' | ./rime_api_console | tee log
-          grep 'commit: 吗' log
+          grep 'commit: 呀' log
