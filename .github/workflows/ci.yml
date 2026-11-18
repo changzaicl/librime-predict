@@ -49,14 +49,23 @@ jobs:
       - name: Build predict.db
         working-directory: build/bin
         run: |
-          test -f predict.txt || {
-           echo "Error: predict.txt not found!"
-           exit 1
+          # 检查训练数据
+          test -f ../../plugins/predict/data/predict.txt || {
+            echo "Error: predict.txt not found!"
+            exit 1
           }
-          
-         cat predict.txt | build/bin/plugins/predict/bin/build_predict
-         
-         ls -lh build/bin/predict.db
+
+          # 检查生成工具
+          test -x plugins/predict/bin/build_predict || {
+            echo "Error: build_predict not found!"
+            exit 1
+          }
+
+          # 使用自己的 predict.txt 生成数据库
+          cat ../../plugins/predict/data/predict.txt | plugins/predict/bin/build_predict
+
+          # 检查生成结果
+          ls -lh predict.db
 
       - name: Upload predict.db
         uses: actions/upload-artifact@v4
