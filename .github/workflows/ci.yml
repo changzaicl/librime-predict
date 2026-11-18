@@ -55,12 +55,6 @@ jobs:
             exit 1
           }
 
-          # 检查生成工具
-          test -x ../plugins/predict/bin/build_predict || {
-            echo "Error: build_predict not found!"
-            exit 1
-          }
-
           # 使用自己的 predict.txt 生成数据库
           cat ../../plugins/predict/data/predict.txt | ../plugins/predict/bin/build_predict
 
