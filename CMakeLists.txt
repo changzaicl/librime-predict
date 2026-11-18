@@ -1,11 +1,3 @@
-- name: Install dependencies
-  run: |
-    sudo apt-get update
-    sudo apt-get install -y \
-      libboost-all-dev \
-      ninja-build \
-      cmake
-      
 project(rime-predict)
 cmake_minimum_required(VERSION 3.10)
 
