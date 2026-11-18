@@ -25,6 +25,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: rime/librime
+          submodules: recursive
 
       - name: Checkout last commit
         uses: actions/checkout@v4
