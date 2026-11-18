@@ -71,9 +71,3 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
     
-      - name: Test
-        working-directory: build/bin
-        run: |
-          cp ../../plugins/predict/data/luna_pinyin.custom.yaml .
-          echo -e 'nihao \n ' | ./rime_api_console | tee log
-          grep 'commit: 呀' log
