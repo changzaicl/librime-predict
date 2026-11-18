@@ -28,7 +28,7 @@ jobs:
           submodules: recursive
 
       - name: Checkout last commit
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           path: plugins/predict
 
