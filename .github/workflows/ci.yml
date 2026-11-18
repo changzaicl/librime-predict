@@ -22,13 +22,13 @@ jobs:
     needs: lint
     steps:
       - name: Checkout librime
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           repository: rime/librime
           submodules: recursive
 
       - name: Checkout last commit
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           path: plugins/predict
 
