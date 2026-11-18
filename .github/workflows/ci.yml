@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout last commit
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
       - name: Install clang-format
         run: sudo apt install -y clang-format
       - name: Lint
@@ -63,7 +63,7 @@ jobs:
           ls -lh predict.db
 
       - name: Upload predict.db
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: predict-db
